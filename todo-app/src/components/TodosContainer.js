@@ -62,6 +62,24 @@ class TodosContainer extends Component {
     .catch((error) => console.log(error));
   }
 
+  removeTodo = (id) => {
+    axios.delete(`/api/v1/todos/${id}`)
+    .then( () => {
+      const todoIndex = this.state.todos.findIndex(
+        (task) => task.id === id
+      );
+
+      const todos = update(this.state.todos, {
+        $splice: [[todoIndex, 1]],
+      });
+
+      this.setState({
+        todos: todos,
+      });
+    })
+    .catch((error) => console.log(error));
+  }
+
   render() {
     return (
       <div>
@@ -81,7 +99,7 @@ class TodosContainer extends Component {
       checked={todo.done} 
       onChange={ (input) => this.modifyTodo(input, todo.id) }/>              
 			<label className="taskLabel">{todo.title}</label>
-			<span className="deleteTaskBtn">x</span>
+			<span className="deleteTaskBtn" onClick={ () => this.removeTodo(todo.id) }>x</span>
 		      </li>
 		    )       
 		  })} 	    
