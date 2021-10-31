@@ -1,24 +1,5 @@
-# README
+Integrating React app with Rails Api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To run project execute 'heroku locale -f Procfile.dev'
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Tutorial from https://www.section.io/engineering-education/how-to-integrate-a-react-application-with-rails-api/
